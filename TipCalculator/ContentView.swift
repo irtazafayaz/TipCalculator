@@ -35,7 +35,7 @@ struct ContentView: View {
                     .accessibilityIdentifier("percentageSegmentedControl")
 
                 
-                Button("Calculate Tip") {
+                Button {
                   
                     tip = ""
                     message = ""
@@ -58,16 +58,21 @@ struct ContentView: View {
                         message = error.localizedDescription
                     }
                     
+                } label: {
+                    Text("Calculate Tip")
+                        .accessibilityIdentifier("calculateTipButton")
                 }.padding(.top, 20)
                 
                 Text(message)
                     .padding(.top, 50)
                     .foregroundColor(.red)
+                    .accessibilityIdentifier("errorMessage")
                 
                 Spacer()
                 
                 Text(tip ?? "")
                     .font(.system(size: 54))
+                    .accessibilityIdentifier("tipLabelText")
                 
                 Spacer()
                 .navigationTitle("Tip Calculator")
